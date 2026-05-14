@@ -1,0 +1,12 @@
+No external libraries required.
+This project uses only Python built-in libraries:
+- dataclasses
+- datetime
+- json
+- os
+- typing
+- http.server
+- urllib.parse
+- webbrowser
+
+The HTML, CSS and JavaScript files are included only for the optional local web UI demonstration.

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FocusFlow Smart Workload Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Python Productivity Project</p>
+      <h1>FocusFlow</h1>
+      <p class="subtitle">A smart workload planner that analyses priority, deadlines and task duration to recommend what students should focus on next.</p>
+      <div class="hero-actions">
+        <button onclick="loadSampleTasks()">Add Sample Tasks</button>
+        <button class="secondary" onclick="exportSummary()">Export Summary</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <span class="big-icon">⚡</span>
+      <h2>Smart Logic Added</h2>
+      <p>Risk scoring, deadline buckets, workload analysis and focus recommendations go beyond basic CRUD.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats-grid">
+      <div class="stat"><span>Total Tasks</span><strong id="totalTasks">0</strong></div>
+      <div class="stat"><span>Pending</span><strong id="pendingTasks">0</strong></div>
+      <div class="stat"><span>Overdue</span><strong id="overdueTasks">0</strong></div>
+      <div class="stat"><span>Completion Rate</span><strong id="completionRate">0%</strong></div>
+      <div class="stat"><span>Due Today</span><strong id="dueToday">0</strong></div>
+      <div class="stat"><span>Due This Week</span><strong id="dueWeek">0</strong></div>
+      <div class="stat"><span>Pending Hours</span><strong id="pendingHours">0</strong></div>
+      <div class="stat"><span>Average Risk</span><strong id="averageRisk">0</strong></div>
+    </section>
+
+    <section class="panel-grid">
+      <form class="panel" id="taskForm">
+        <h2>Add a Focus Task</h2>
+        <label>Task Title
+          <input type="text" id="title" placeholder="Example: Complete project presentation" required />
+        </label>
+        <div class="two-col">
+          <label>Category
+            <select id="category">
+              <option value="Study">Study</option>
+              <option value="Personal">Personal</option>
+              <option value="Health">Health</option>
+              <option value="Work">Work</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label>Priority
+            <select id="priority">
+              <option value="5">5 - Very High</option>
+              <option value="4">4 - High</option>
+              <option value="3">3 - Medium</option>
+              <option value="2">2 - Low</option>
+              <option value="1">1 - Very Low</option>
+            </select>
+          </label>
+        </div>
+        <div class="two-col">
+          <label>Duration in Minutes
+            <input type="number" id="duration" min="10" max="720" value="60" required />
+          </label>
+          <label>Deadline
+            <input type="date" id="deadline" required />
+          </label>
+        </div>
+        <button type="submit">Save Task</button>
+        <p class="message" id="formMessage"></p>
+      </form>
+
+      <section class="panel">
+        <h2>Generate Daily Focus Plan</h2>
+        <p class="muted">The Python algorithm selects high-risk tasks that fit your available time.</p>
+        <label>Available Minutes Today
+          <input type="number" id="availableMinutes" min="1" max="720" value="180" />
+        </label>
+        <button onclick="generatePlan()">Generate Plan</button>
+        <div id="planList" class="plan-list"></div>
+      </section>
+    </section>
+
+    <section class="panel analysis-panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">Analysis</p>
+          <h2>Workload Insights & Recommendations</h2>
+        </div>
+        <button class="secondary dark-btn" onclick="refreshAll()">Refresh</button>
+      </div>
+      <div class="analysis-grid">
+        <div>
+          <h3>Deadline Buckets</h3>
+          <div id="deadlineBuckets" class="bucket-list"></div>
+        </div>
+        <div>
+          <h3>Category Workload</h3>
+          <div id="categoryWorkload" class="bucket-list"></div>
+        </div>
+        <div>
+          <h3>Recommendations</h3>
+          <ol id="recommendations" class="recommendations"></ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">Task List</p>
+          <h2>Tasks Sorted by Risk</h2>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Task</th>
+              <th>Category</th>
+              <th>Priority</th>
+              <th>Duration</th>
+              <th>Deadline</th>
+              <th>Risk</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="taskTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

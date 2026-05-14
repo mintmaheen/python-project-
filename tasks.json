@@ -1,0 +1,22 @@
+[
+    {
+        "task_id": 1,
+        "title": "Study DSA",
+        "category": "Study",
+        "priority": 4,
+        "duration_minutes": 60,
+        "deadline": "2026-05-13",
+        "status": "Completed",
+        "created_on": "2026-05-13"
+    },
+    {
+        "task_id": 2,
+        "title": "Complete assignment",
+        "category": "Study",
+        "priority": 5,
+        "duration_minutes": 60,
+        "deadline": "2026-05-13",
+        "status": "Completed",
+        "created_on": "2026-05-13"
+    }
+]
