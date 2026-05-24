@@ -18,4 +18,4 @@ Functionalities of the application:
 
 # Demo
 
-[Watch the demo video](./focus flow.mp4)
+[Watch the demo video](./Focus.mp4)
