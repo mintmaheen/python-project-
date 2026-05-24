@@ -1,8 +1,5 @@
-# Focus Flow
+# Focus Flow Workload Planner
 FocusFlow is a smart and easy-to-use productivity planner designed to help students stay organised, focused, and motivated in their daily lives
-
-FocusFlow Smart Workload Planner
-=================================
 
 Project category: Productive Task and Workload Management
 
