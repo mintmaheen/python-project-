@@ -1,18 +1,4 @@
 #!/usr/bin/env python3
-"""
-FocusFlow Smart Workload Planner
-Run terminal version with: python main.py   (Mac: python3 main.py)
-
-This project uses only Python built-in libraries.
-It demonstrates:
-- Object-oriented programming with Task and FocusFlowPlanner classes
-- File handling using JSON
-- Data analysis over task priority, deadline, duration and status
-- Sorting/filtering and recommendation logic
-- Exception handling and input validation
-- A small greedy scheduling algorithm for daily focus planning
-"""
-
 from dataclasses import dataclass, asdict
 from datetime import datetime, date, timedelta
 import json
